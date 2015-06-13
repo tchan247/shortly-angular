@@ -49,6 +49,7 @@ angular.module('shortly.services', [])
       data: user
     })
     .then(function (resp) {
+      console.log("SERVICES.js SIGNUP")
       return resp.data.token;
     });
   };

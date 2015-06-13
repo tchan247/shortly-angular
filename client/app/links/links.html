@@ -2,19 +2,31 @@
   1) list of all the links
   2) input box for new link
 -->
-<div ng-controller='LinksController' ng-init='getLinks()'>
-  <li class="link" ng-repeat="link in data.links" >
+<div class='navigation'>
+  <ul>
+   <li><a href='#/links' class='index'>All Links</a></li>
+    <li><a href='#/create' class='create'>Shorten</a></li>
+  </ul>
+    <div ng-controller='LinksController' ng-click='signOut()'>
+      <a class='logout'>Logout</a>
+    </div>
+  </div>
+  <div id='container'>
 
-  <img src='assets/redirect_icon.png'/>
-  <div class='info'>
-    <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
-    {{link}}
-    <div class='title'>{{link.title}}</div>
-    <div class='original'>{{link.url}}</div>
-    <a href='{{base_url}}/{{code}}'>{{link.base_url}}/{{code}}</a>
+  <div ng-controller='LinksController' ng-init='getLinks()'>
+    <li class="link" ng-repeat="link in data.links" >
+
+    <img src='assets/redirect_icon.png'/>
+    <div class='info'>
+      <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+      <div class='title'>{{link.title}}</div>
+      <div class='original'>{{link.url}}</div>
+      <a href='{{base_url}}/{{code}}'>{{link.base_url}}/{{code}}</a>
+    </div>
+
+    </li>
   </div>
 
-  </li>
 </div>
 
 <!--

@@ -1,9 +1,11 @@
 <div id='signin'>
   <h1>signin</h1>
-  <form name="signinForm" ng-submit='signin()'>
-    <input type='text'ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
+  <form name="signinForm" ng-submit='signinForm.$valid && signin()'>
+    <input class='ng-pristine ng-valid' type='text' ng-model='user.username' required>
+    <input class='ng-pristine ng-valid' type="password" ng-model='user.password' required>
     <button>signin</button>
+
+    <div> singinForm is {{ singinForm.$valid }}</div>
   </form>
   <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
 </div>

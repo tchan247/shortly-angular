@@ -1,9 +1,37 @@
-<div id='create' ng-controller='ShortenController'>
-  <form name="linkForm" ng-submit= 'getLinks()'>
-      <input class='text' type='text' name='url' ng-model="newLink.url">
-      <input type='submit'>
-  </form>
-  <img class='spinner' src='assets/spiffygif_46x46.gif'>
-  <div class='message'></div>
-</div>
+<div class='navigation'>
+  <ul>
+    <li><a href='#/links' class='index'>All Links</a></li>
+    <li><a href='#/create' class='create'>Shorten</a></li>
+  </ul>
+    <a href='#/logout' class='logout'>Logout</a>
+  </div>
+  <div id='container'>
 
+
+  <div class='creator' id='create' ng-controller='ShortenController'>
+    <form name="linkForm" ng-submit= 'linkForm.$valid && postLink(); getRecentLinks();'>
+        <input class='text ng-dirty ng-valid' type='url' name='url' ng-model="newLink.url" required>
+        <input type='submit'>
+
+        <div> linkForm is {{ linkForm.$valid }}</div>
+    </form>
+    <img class='spinner' src='assets/spiffygif_46x46.gif'>
+    <div class='message'></div>
+
+  <!-- grab the most recently entered link from the DB, if the link was validated>
+  -->
+
+    <li class="link" ng-model='addThisLink' >
+
+      <img src='assets/redirect_icon.png'/>
+        <div class='info'>
+          <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+          <div class='title'>{{link.title}}</div>
+          <div class='original'>{{link.url}}</div>
+          <a href='{{base_url}}/{{code}}'>{{link.base_url}}/{{code}}</a>
+        </div>
+
+    </li>
+
+
+  </div>
