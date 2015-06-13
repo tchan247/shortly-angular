@@ -1,6 +1,9 @@
-<div id='container'>
-<!-- Your code here -->
-
+<div id='create' ng-controller='ShortenController'>
+  <form name="linkForm" ng-submit= 'getLinks()'>
+      <input class='text' type='text' name='url' ng-model="newLink.url">
+      <input type='submit'>
+  </form>
+  <img class='spinner' src='assets/spiffygif_46x46.gif'>
+  <div class='message'></div>
 </div>
-
 

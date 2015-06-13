@@ -1,3 +1,41 @@
-<div id='container'>
-  <!-- Your html here -->
+<!--
+  1) list of all the links
+  2) input box for new link
+-->
+<div ng-controller='LinksController' ng-init='getLinks()'>
+  <li class="link" ng-repeat="link in data.links" >
+
+  <img src='assets/redirect_icon.png'/>
+  <div class='info'>
+    <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+    <div class='title'>{{link.title}}</div>
+    <div class='original'>{{link.url}}</div>
+    <a href='{{base_url}}/{{code}}'>{{link.base_url}}/{{code}}</a>
+  </div>
+
+  </li>
 </div>
+
+<!--
+
+
+<div id='container' ng-controller='LinksController' ng-init='getLinks()'>
+  <li class="linkItem" ng-repeat="link in data.links" >
+  HEEEY
+<!Your html here -->
+  <!-- <h2> {{ link.title }} HEEEY</h2>
+  <h1> {{ link.url }} </h1>
+
+
+</div>
+
+
+<script id='link' type='text/x-handlebars-template'>
+  <img src='/redirect_icon.png'/>
+  <div class='info'>
+    <div class='visits'><span class='count'>{{visits}}</span>Visits</div>
+    <div class='title'>{{title}}</div>
+    <div class='original'>{{url}}</div>
+    <a href='{{base_url}}/{{code}}'>{{base_url}}/{{code}}</a>
+  </div>
+</script> -->
