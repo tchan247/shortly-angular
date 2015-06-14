@@ -1,13 +1,19 @@
 <div class='navigation'>
   <ul>
-    <li><a href='#/links' class='index'>All Links</a></li>
+   <li><a href='#/links' class='index'>All Links</a></li>
     <li><a href='#/create' class='create'>Shorten</a></li>
+    <li><a href='#/signin' class='create'>SignIn</a></li>
+    <li><a href='#/signup' class='create'>SignUp</a></li>
+    <li>
+      <div ng-controller='LinksController' ng-click='signOut()'>
+        <a class='logout'>Logout</a>
+      </div>
+    </li>
+
   </ul>
-    <a href='#/logout' class='logout'>Logout</a>
-  </div>
-  <div id='container'>
 
 
+</div>
   <div class='creator' id='create' ng-controller='ShortenController'>
     <form name="linkForm" ng-submit= 'linkForm.$valid && postLink(); getRecentLinks();'>
         <input class='text ng-dirty ng-valid' type='url' name='url' ng-model="newLink.url" required>

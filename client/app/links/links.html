@@ -6,15 +6,25 @@
   <ul>
    <li><a href='#/links' class='index'>All Links</a></li>
     <li><a href='#/create' class='create'>Shorten</a></li>
+    <li><a href='#/signin' class='create'>SignIn</a></li>
+    <li><a href='#/signup' class='create'>SignUp</a></li>
+    <li>
+      <div ng-controller='LinksController' ng-click='signOut()'>
+        <a class='logout'>Logout</a>
+      </div>
+    </li>
+
   </ul>
-    <div ng-controller='LinksController' ng-click='signOut()'>
-      <a class='logout'>Logout</a>
-    </div>
+
+
   </div>
   <div id='container'>
 
   <div ng-controller='LinksController' ng-init='getLinks()'>
-    <li class="link" ng-repeat="link in data.links" >
+
+    <input type='text' ng-model='search' placeholder='filter'>
+
+    <li class="link" ng-repeat="link in data.links  | filter:search | orderBy: 'created_at' " >
 
     <img src='assets/redirect_icon.png'/>
     <div class='info'>
